@@ -1,4 +1,4 @@
-# __Type__: Shiny Application
+__Type__: Shiny Application
 
 __Title__: Shiny application for Automated explorattory data analysis and Machine learning.
 

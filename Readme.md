@@ -1,6 +1,6 @@
-__Type__: Shiny Application
-
 __Title__: Shiny application for Automated explorattory data analysis and Machine learning.
+
+__Type__: Shiny Application
 
 __Version__: 0.1.0
 

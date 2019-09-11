@@ -6,7 +6,7 @@ __Version__: 0.1.0
 
 __Author__: __Sai Chimata__
 
-__Maintainer__: Sai Chimata <schimata@yotabitesllc.com>
+__Maintainer__: Sai Chimata
 
 __Depends__:
     R (>= 3.0.1)

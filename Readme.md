@@ -12,9 +12,11 @@ __Depends__:
     R (>= 3.0.1)
     
 __Imports__:
-    rjson,
-    rsconnect,
-    dplyr
+shiny, sqldf, ggplot2, plotly, shinydashboard, lubridate, reshape2, gridExtra, 
+ gtable, grid, plyr, qcc, DT, shinyjs, gtools, V8, VIM, corrplot, tabplot, 
+ e1071, vcd, caret, caretEnsemble, randomForest, kernlab, 
+ rpart, glmnet, xgboost, gbm,rjson,rsconnect,dplyr
+
     
 __Description__: Provides a tool for for Automated explorattory data analysis, visualization and Machine learning.
 

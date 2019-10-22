@@ -1,10 +1,10 @@
 rm(list=ls())
 
-#packages <- c("shiny","sqldf","ggplot2","plotly","shinydashboard","lubridate","reshape2","gridExtra",
+# packages <- c("shiny","sqldf","ggplot2","plotly","shinydashboard","lubridate","reshape2","gridExtra",
 #         "gtable","grid","plyr","qcc","DT","shinyjs","gtools","V8","VIM","corrplot","tabplot",
 #         "e1071","vcd","caret","caretEnsemble","randomForest","kernlab",
 #         "rpart","glmnet","xgboost","gbm")
-#sapply(packages, function(x) require(x,character.only = TRUE) || {
+# sapply(packages, function(x) require(x,character.only = TRUE) || {
 #  library(x,character.only = TRUE)} )
 
 
@@ -80,7 +80,7 @@ server<-(function(input, output, session) {
   # File Upload
   
   output$FileUpload1 = renderUI(
-    fileInput('file1', 'Upload Training Dataset (CSV File)',
+    fileInput('file1', 'Upload Training Dataset in CSV File format',
               accept=c('text/csv', 
                        'text/comma-separated-values,text/plain', 
                        '.csv'))
@@ -1052,11 +1052,12 @@ server<-(function(input, output, session) {
   # Provide Do's and Dont's in file upload
   
   output$TestUploadRules = renderText({
-    print(paste("Guidelines:","1. Test File is clean with no missing values", 
-                "2. Number of columns should be equal to one less in Number of columns 
-                in training dataset", "3. Column Names should Match","5. Same Transformations applied across Training and Test DataSet",
-                "6. Algorithm has been processed in previous step","If any of the above assumption is failed then 
-                Model will not run or predictions will not be correct",sep="\n"))
+    print(paste("Guidelines:",
+                "1. Test File should be clean with no missing values",
+                "2. Column Names should Match",
+                "3. Same Transformations should be applied across Training and Test DataSet",
+                "4. Algorithm has been processed in previous step",
+                "Failing on above assumption fails Model or predictions might not be correct",sep="\n"))
   })   
   
   
@@ -1105,8 +1106,9 @@ server<-(function(input, output, session) {
   # Provide guidelines to upload the train dataset during model development
   
   output$GuideTrain = renderText({
-    print(paste("Note:1.There should not be missing data in the file",
-                "2. This is because few Models does not accept missing values",sep="\n")) 
+    print(paste("Note:",
+                "1. Filter/Fill missing data",
+                "2. Few Models does not accept missing values",sep="\n")) 
   })   
   
   # Missing Pattern Plot
@@ -1239,7 +1241,7 @@ server<-(function(input, output, session) {
     # Make sure it closes when we exit this reactive, even if there's an error
     on.exit(progress$close())
     
-    progress$set(message = "Processing is going on..Kindly wait")
+    progress$set(message = "Please wait..Please wait!!")
     
     if(input$PlotType=="Box"){
       box(uiOutput("BoxParams"),
@@ -1292,7 +1294,7 @@ server<-(function(input, output, session) {
 
 
 ui<-dashboardPage(
-  dashboardHeader(title = "Exploratory Data Analysis and Machine Learning",titleWidth=440),
+  dashboardHeader(title = "Exploratory Data Analysis and Machine Learning",titleWidth=600),
   dashboardSidebar(disable=TRUE,
                    
                    
